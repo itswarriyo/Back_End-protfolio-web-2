@@ -14,11 +14,13 @@ app.use(cors({ origin: "*" }));
 const enqueryroute = require("./App/Router/protfolio.router");
 app.use("/api/enquery", enqueryroute);
 
+
 app.get("/" , (req,res) => 
   {
     res.send("Backend working")
   })
 
+// 🔥 prevent multiple connections (IMPORTANT for Vercel)
 let isConnected = false;
 
 const connectDB = async () => {
@@ -33,8 +35,7 @@ const connectDB = async () => {
   }
 };
 
-// middleware style (BEST for Vercel)
-app.use(async (req, res, next) => {
-  await connectDB();
-  next();
-});
+connectDB();
+
+
+module.exports = app;
