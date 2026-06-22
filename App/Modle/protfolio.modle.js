@@ -22,24 +22,20 @@ const enquerySchema = new mongoose.Schema({
 
   subject: {
     type: String,
-    required: true,
     trim: true
   },
 
   country: {
     type: String,
-    required: true,
     trim: true
   },
 
   services: {
     type: String,
-    required: true,
     trim: true
   },
     message: {
     type: String,
-    required: true,
     trim: true
   }
 

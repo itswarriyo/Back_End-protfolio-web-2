@@ -23,8 +23,16 @@ let enqueryInsert = async (req, res) => {
         res.send({ status: 1, message: "Information Saved Successfully!" , Data:enquiry });
 
     } catch (err) {
-        res.send({ status: 0, message: "Error while saving data", error: err });
-    }
+    console.log("FULL ERROR:", err);
+    console.log("ERROR NAME:", err.name);
+    console.log("ERROR MESSAGE:", err.message);
+
+    res.send({
+        status: 0,
+        message: "Error while saving data",
+        error: err.message
+    });
+}
 }
 
 module.exports = {enqueryInsert}
