@@ -14,6 +14,11 @@ app.use(cors({ origin: "*" }));
 const enqueryroute = require("./App/Router/protfolio.router");
 app.use("/api/enquery", enqueryroute);
 
+
+app.get("/", (req, res) => {
+  res.send("Backend is working 🚀");
+});
+
 app.get("/" , (req,res) => 
   {
     res.send("Backend working")
